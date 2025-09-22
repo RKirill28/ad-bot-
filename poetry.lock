@@ -182,6 +182,20 @@ frozenlist = ">=1.1.0"
 typing-extensions = {version = ">=4.2", markers = "python_version < \"3.13\""}
 
 [[package]]
+name = "aiosqlite3"
+version = "0.3.0"
+description = "sqlite3 support for asyncio."
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "aiosqlite3-0.3.0-py3-none-any.whl", hash = "sha256:11efa1b61bdf621f1ba5568bd4ac7db6387b49cf11f4b99f6aa5e6668591ae85"},
+]
+
+[package.extras]
+sa = ["sqlalchemy (>=0.9)"]
+
+[[package]]
 name = "alembic"
 version = "1.16.5"
 description = "A database migration tool for SQLAlchemy."
@@ -1255,4 +1269,4 @@ propcache = ">=0.2.1"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10"
-content-hash = "47c2fd144bde94e8c29d2ca778f846694893b2dad994c5f917dd508c5356d740"
+content-hash = "7dafd27f5b9a3b654729869ed39e54fc928fa0200ad4cb4df460421fff5d0581"
