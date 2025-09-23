@@ -7,9 +7,14 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.enums import ParseMode
 
+from bot.middlewaries import DIMiddleware
 from config import settings
 
 from bot.main import router as main_router
+from bot.admin_router import router as admin_router
+from bot.moder_router import router as moder_router
+from bot.user_router import router as user_router
+
 
 
 async def main():
@@ -20,6 +25,9 @@ async def main():
     )
     await bot.delete_webhook(drop_pending_updates=True)
 
+    main_router.include_routers(admin_router, moder_router, user_router)
+    main_router.message.outer_middleware(DIMiddleware())
+    main_router.callback_query.outer_middleware(DIMiddleware())
     dp.include_router(main_router)
 
     await dp.start_polling(bot)
