@@ -24,6 +24,6 @@ class Ad(Base):
     link: Mapped[str] # Link to project
     is_moderating: Mapped[bool] # Moderation status
 
-    moderator_id: Mapped[int] = mapped_column(ForeignKey("moderator.id"), nullable=True)
+    moderator_id: Mapped[int] = mapped_column(ForeignKey("moderators.id"), nullable=True)
     moderator: Mapped["Moderator"] = relationship(back_populates="in_moderating")
 
