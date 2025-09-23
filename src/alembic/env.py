@@ -30,8 +30,9 @@ target_metadata = Base.metadata
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
 
-# WARN: SET DATABASE URL TO ALEMBIC 
-config.set_main_option('sqlalchemy.url', str(settings.database.url))
+# WARN: SET DATABASE URL TO ALEMBIC
+config.set_main_option("sqlalchemy.url", str(settings.database.url))
+
 
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode.
@@ -71,7 +72,9 @@ async def run_async_migrations() -> None:
     """
 
     connectable = async_engine_from_config(
-        config.get_section(config.config_ini_section, {}), # {"sqlalchemy.url": settings.db_config.url},
+        config.get_section(
+            config.config_ini_section, {}
+        ),  # {"sqlalchemy.url": settings.db_config.url},
         prefix="sqlalchemy.",
         poolclass=pool.NullPool,
     )

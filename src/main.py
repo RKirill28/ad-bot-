@@ -16,7 +16,6 @@ from bot.moder_router import router as moder_router
 from bot.user_router import router as user_router
 
 
-
 async def main():
     dp = Dispatcher(storage=MemoryStorage())
     bot = Bot(

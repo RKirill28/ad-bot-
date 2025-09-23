@@ -5,8 +5,10 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class BotConfig(BaseSettings):
     token: str
 
+
 class DBConfig(BaseSettings):
     url: str
+
 
 class Settings(BaseSettings):
     bot_config: BotConfig
