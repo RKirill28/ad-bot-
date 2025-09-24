@@ -1,6 +1,6 @@
 # Схемы для таблиц sqlalchemy
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class ModeratorData(BaseModel):
@@ -10,6 +10,7 @@ class ModeratorData(BaseModel):
     username: str | None
 
     in_moderating: list["AdData"] = []
+    model_config = ConfigDict(from_attributes=True)
 
 
 class AdData(BaseModel):
@@ -18,4 +19,5 @@ class AdData(BaseModel):
     link: str  # Link to project
     is_moderating: bool  # Moderation status
 
-    moderator: ModeratorData | None = None
+    # moderator: ModeratorData | None = None
+    model_config = ConfigDict(from_attributes=True)
