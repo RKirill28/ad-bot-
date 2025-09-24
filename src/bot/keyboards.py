@@ -12,6 +12,14 @@ def show_menu() -> ReplyKeyboardMarkup:
     )
 
 
+def back_to_menu_btn() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="Назад", callback_data="back_to_menu")]
+        ]
+    )
+
+
 def admin_menu() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
