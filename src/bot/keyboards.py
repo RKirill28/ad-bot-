@@ -25,6 +25,11 @@ def admin_menu() -> InlineKeyboardMarkup:
                     text="Удалить модератора", callback_data="delete_moder"
                 )
             ],
+            [
+                InlineKeyboardButton(
+                    text="Список модераторов", callback_data="list_moders"
+                )
+            ],
         ]
     )
 
