@@ -3,13 +3,16 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
 
 class Base(DeclarativeBase):
-    @classmethod
-    @property
-    def __tablename__(cls) -> str:
-        return cls.__name__.lower() + "s"
+    pass
+    # @classmethod
+    # @property
+    # def __tablename__(cls) -> str:
+    #     return cls.__name__.lower() + "s"
 
 
 class Moderator(Base):
+    __tablename__ = "moderators"
+
     id: Mapped[int] = mapped_column(primary_key=True)
     telegram_id: Mapped[int]
     first_name: Mapped[str | None]
@@ -20,6 +23,8 @@ class Moderator(Base):
 
 
 class Ad(Base):
+    __tablename__ = "ads"
+
     id: Mapped[int] = mapped_column(primary_key=True)
     title: Mapped[str] = mapped_column(String(60))
     description: Mapped[str] = mapped_column(String(800))
