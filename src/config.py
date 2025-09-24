@@ -4,6 +4,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class BotConfig(BaseSettings):
     token: str
+    admin_id: str
 
 
 class DBConfig(BaseSettings):
