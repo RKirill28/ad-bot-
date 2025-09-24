@@ -4,7 +4,7 @@ from sqlalchemy import select
 
 from typing import Type, Sequence
 
-from db import Base
+from db.models import Base
 
 
 class BaseRepository[T: Base, M: BaseModel]:
