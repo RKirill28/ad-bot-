@@ -4,6 +4,8 @@ from aiogram.types import Message
 
 from bot.keyboards import admin_menu, moder_menu, user_menu
 
+import bot.services.message_service as message_service
+
 router = Router()
 admin = 1202267126
 moders = [7375913205]
@@ -28,3 +30,11 @@ async def start(mess: Message) -> None:
         "Это ваше меню, выберите один из пунктов:"
 
     await mess.answer(text=text, reply_markup=reply_markup)
+
+
+@router.callback_query(F.data == "back_to_menu")
+async def back_to_menu(cb: CallbackQuery, session: AsyncSession) -> None:
+    await cb.answer()
+    text, reply_markup = await message_service.get_main_menu(session, cb.from_user.id)
+
+    await cb.message.edit_text(text, reply_markup=reply_markup)
