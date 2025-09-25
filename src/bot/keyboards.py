@@ -20,6 +20,18 @@ def back_to_menu_btn() -> InlineKeyboardMarkup:
     )
 
 
+def back_to_menu_with_delete_btn() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton(
+                    text="Назад", callback_data="back_to_menu_with_delete"
+                )
+            ]
+        ]
+    )
+
+
 def admin_menu() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
