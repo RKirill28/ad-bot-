@@ -22,4 +22,3 @@ class ModeratorRepo(BaseRepository[Moderator, ModeratorData]):
     async def get_ids(cls, session: AsyncSession) -> Sequence[int]:
         res = await session.execute(select(cls.model.telegram_id))
         return res.scalars().all()
-

@@ -4,8 +4,10 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from db.repositories.moderator_repo import ModeratorRepo
 from db.schemas import ModeratorData
 
+
 class AlredyExists(Exception):
     """Ошибка указывающая на то, что объект в бд уже существует"""
+
 
 async def add_moder(session: AsyncSession, user_info: ChatFullInfo) -> ModeratorData:
     user = ModeratorData(
@@ -18,6 +20,7 @@ async def add_moder(session: AsyncSession, user_info: ChatFullInfo) -> Moderator
 
     await session.commit()
     return user
+
 
 async def remove_moder(session: AsyncSession, user_id: int) -> None:
     await ModeratorRepo.remove(session, user_id)

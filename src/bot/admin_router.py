@@ -62,14 +62,17 @@ async def get_user_id_for_add_moder(
         try:
             await admin_service.add_moder(session, user_info)
         except IntegrityError:
-            await mess.answer('Такой юзер уже существует, попробуйте еще раз:', reply_markup=back_to_menu_btn())
+            await mess.answer(
+                "Такой юзер уже существует, попробуйте еще раз:",
+                reply_markup=back_to_menu_btn(),
+            )
             return
-        
+
         await mess.answer(
             f"Добавил юзера @{user_info.username} | {user_info.first_name} | {user_info.last_name}"
         )
 
-        await state.clear() # WARN: Чистим состояние, полностью
+        await state.clear()  # WARN: Чистим состояние, полностью
 
         await send_main_menu(mess, session)
     except TelegramBadRequest:
