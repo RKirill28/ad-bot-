@@ -13,8 +13,8 @@ class Base(DeclarativeBase):
 class Moderator(Base):
     __tablename__ = "moderators"
 
-    id: Mapped[int] = mapped_column(primary_key=True)
-    telegram_id: Mapped[int]
+    # id: Mapped[int] = mapped_column(primary_key=True)
+    telegram_id: Mapped[int] = mapped_column(primary_key=True)
     first_name: Mapped[str | None]
     last_name: Mapped[str | None]
     username: Mapped[str | None]
@@ -32,6 +32,6 @@ class Ad(Base):
     is_moderating: Mapped[bool]  # Moderation status
 
     moderator_id: Mapped[int] = mapped_column(
-        ForeignKey("moderators.id"), nullable=True
+        ForeignKey("moderators.telegram_id"), nullable=True
     )
     moderator: Mapped["Moderator"] = relationship(back_populates="in_moderating")
