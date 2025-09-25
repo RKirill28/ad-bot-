@@ -2,9 +2,7 @@
 name = "ad-bot"
 version = "0.1.0"
 description = ""
-authors = [
-    {name = "RKirill28",email = "pavlov26.2008@gmail.com"}
-]
+
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
