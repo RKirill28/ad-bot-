@@ -22,7 +22,7 @@ async def get_main_menu(session: AsyncSession, user_id: int):
     if user_id == int(settings.bot_config.admin_id):
         reply_markup = keyboards.admin_menu()
         text = "Здравствуйте, господин. Ваше админ меню:"
-    elif user_id in moders_ids:
+    elif user_id in list(moders_ids):
         reply_markup = keyboards.moder_menu()
         text = "Здравствуйте, дорогой модератор! Это ваше меню, удачной модерации:"
     else:
