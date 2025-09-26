@@ -26,11 +26,3 @@ async def back_to_menu(cb: CallbackQuery, session: AsyncSession) -> None:
     text, reply_markup = await message_service.get_main_menu(session, cb.from_user.id)
 
     await cb.message.edit_text(text, reply_markup=reply_markup)
-
-
-@router.callback_query(F.data == "back_to_menu_with_delete")
-async def back_to_menu(
-    cb: CallbackQuery, state: FSMContext, session: AsyncSession
-) -> None:
-    await cb.message.delete()
-    await state.clear()
