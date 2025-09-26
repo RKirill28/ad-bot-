@@ -4,6 +4,9 @@ from aiogram.types import (
     ReplyKeyboardMarkup,
     KeyboardButton,
 )
+from aiogram.utils.keyboard import InlineKeyboardBuilder
+
+from db.schemas import ModeratorData
 
 
 def show_menu() -> ReplyKeyboardMarkup:
@@ -71,3 +74,15 @@ def user_menu() -> InlineKeyboardMarkup:
             [InlineKeyboardButton(text="О боте", callback_data="help")],
         ]
     )
+
+
+def moders_list_menu(moders_list: list[ModeratorData]) -> InlineKeyboardMarkup:
+    builder = InlineKeyboardBuilder()
+
+    c = 0
+    for moder in moders_list:
+        builder.row(
+            InlineKeyboardButton(
+                text="", callback_data=f"remove_moder_{moder.telegram_id}"
+            )
+        )
