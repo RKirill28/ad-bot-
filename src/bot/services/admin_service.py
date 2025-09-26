@@ -22,5 +22,6 @@ async def add_moder(session: AsyncSession, user_info: ChatFullInfo) -> Moderator
     return user
 
 
-async def remove_moder(session: AsyncSession, user_id: int) -> None:
-    await ModeratorRepo.remove(session, user_id)
+async def delete_moder(session: AsyncSession, id: int) -> None:
+    await ModeratorRepo.remove(session, id)
+    await session.commit()
